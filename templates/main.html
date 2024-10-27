@@ -1,0 +1,10 @@
+<ul>
+{% for dialog in dialogs %}
+    <li>
+        <a href="{{url_for('chat', chat_id=dialog.id)}}">
+            {{dialog.name}}
+        </a>
+        &nbsp; <small>{{dialog.unread_count}}</small>
+    </li>
+{% endfor %}
+</ul>

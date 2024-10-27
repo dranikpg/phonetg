@@ -1,0 +1,24 @@
+<form action="/chat/{{chat_id}}" method="POST" id="msgform">
+    <input type="submit">
+</form>
+<textarea name="text" form="msgform" width=2></textarea>
+
+<br/>
+<hr>
+
+{% for message in messages %}
+
+{% if message.out %}
+ >
+{% else %}
+ <
+{% endif %}
+
+{{ message.message }}
+<i>- {{ message.date.strftime('%Y-%m-%d %H:%M') }}</i>
+<hr>
+
+{% endfor %}
+
+<a href="/"> BACK </a> &nbsp;
+<a href="?max_id={{min_id}}">NEXT</a>
